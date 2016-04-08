@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <!--<link href="css/style.css" rel="stylesheet">-->
+    <script src="bower_components/vue/dist/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+        <input type="text" v-model="message">
+    </div>
+    
+    <div id="todo">
+        <input type="text" v-on:keyup.enter="addTask" v-model="newTask">
+        <ul>
+            <li v-for="task in todo">
+                <span>{{task.text}}</span>
+                <button v-on:click="removeTask($index)">remove</button>
+            </li>
+        </ul>
+        <button v-on:click="reverseTasks">Reverse Tasks</button>
+    </div>
+    
+    <div id="name">
+        <input type="text" v-model="fullName">
+        <input type="text" v-model="firstName">
+        <input type="text" v-model="lastName">
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
